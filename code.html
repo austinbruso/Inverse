@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="css/site.css">
    <!-- Convert this to an external style sheet -->
     <link rel="icon" href="img/favicon.ico">
+    <link href="css/prism.css" rel="stylesheet">
 </head>
 <body class="d-flex flex-column h-100">
 
@@ -53,10 +54,63 @@
 <!-- Nav Section -->
 
 <!-- Main Section -->
-    <main class="flex-shrink-0">
-        <div class="container">
+        <main class="flex-shrink-0 mt-5">
+            <div class="container py-4 px-5 mt-5 pb-5" >
+                <h2 class="border-1 border-bottom border-dark ">The Code for APP Name.</h2>
+                <div class="row row-cols-1 row-cols-md-2">
+                    <div class="col-lg-8">
+                        <pre class="line-numbers"><code class = "language-javascript">
+                            // Get the string from the page
+// Controller Function
+function getValue() {
 
-        </div>
+    document.getElementById("alert").classList.add("invisible");
+
+    let userString = document.getElementById("userString").value;
+
+    let revString = reverseString(userString);
+
+    displayString(revString)
+}
+
+// Reverse the string
+// Logic Function
+
+function reverseString(userString) {
+    let revString = [];
+
+
+    //reverse a string using a for loop
+    for (let index = userString.length - 1; index >= 0; index--) {
+        revString += userString[index];
+    }
+
+    return revString;
+}
+
+// Display the string
+// View Function
+function displayString(revstring) {
+
+    // Write to the page
+    document.getElementById("msg").innerHTML = `Your string reversed is: ${revstring}`;
+    // show the alert box
+    document.getElementById("alert").classList.remove("invisible");
+}
+                                
+                            
+                        </code>
+                    </pre>
+                    </div>
+                    <div class="col-lg-4">
+                        <p class="">The code is structured in one function</p>
+                        <h1>Reverse a String</h1>
+                        <ol>
+                            <li><p>The getValue function grabs all the values and combines the logic and display functions inside of it.</p></li>
+                            <li><p>The ReverseString function creates an empty array variable. Then it iterates through what is passed into the #userString value and reverses the order of the string by adding a .length with - 1 property adding a condition to stop before it reaches 0. </p></li>
+                            <li><p>The DisplayString function displays the reversed string within an alert container using DOM.</p></li>
+                        </ol>
+                    </div>
     </main>
     <!-- Footer -->
     <footer class="footer mt-auto sticky-footer">
@@ -87,6 +141,16 @@
  integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous">
 </script>
 <script src="js/site.js"></script>
+    <script src="js/prism.js"></script>
+    
+    <script> 
+            Prism.plugins.NormalizeWhitespace.setDefaults({
+                'remove-trailing':true,
+                'remove-indent':true,
+                'left-trim':true,
+                'right-trim':true
+            })
+        </script>   
 
 </body>
 </html>
